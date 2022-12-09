@@ -1,9 +1,9 @@
 package container
 
 import (
-	"HomeWorkGo/infra/conf"
-	"HomeWorkGo/internal/service/wechat"
-	"HomeWorkGo/internal/service/workflow"
+	"workflow_http/infra/conf"
+	"workflow_http/internal/service/wechat"
+	"workflow_http/internal/service/workflow"
 )
 
 type Container struct {

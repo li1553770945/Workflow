@@ -1,8 +1,8 @@
 package workflow
 
 import (
-	"HomeWorkGo/internal/service"
 	"github.com/gin-gonic/gin"
+	"workflow_http/internal/service"
 )
 
 func (s *Service) Test(c *gin.Context) {

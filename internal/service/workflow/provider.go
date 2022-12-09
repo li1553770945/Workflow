@@ -1,6 +1,8 @@
 package workflow
 
-import "HomeWorkGo/internal/repo"
+import (
+	"workflow_http/internal/repo"
+)
 
 type Service struct {
 	Repo repo.IRepository

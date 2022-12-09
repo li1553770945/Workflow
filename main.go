@@ -1,7 +1,7 @@
 package main
 
 import (
-	"HomeWorkGo/container"
+	"workflow_http/container"
 )
 
 var app *container.Container

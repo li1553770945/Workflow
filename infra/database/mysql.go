@@ -1,10 +1,10 @@
 package database
 
 import (
-	"HomeWorkGo/infra/conf"
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"workflow_http/infra/conf"
 )
 
 func NewMySQL(cfg *conf.Config) *gorm.DB {

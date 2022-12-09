@@ -6,11 +6,12 @@
 package container
 
 import (
-	"HomeWorkGo/infra/conf"
-	"HomeWorkGo/infra/database"
-	"HomeWorkGo/internal/repo"
-	"HomeWorkGo/internal/service/wechat"
-	"HomeWorkGo/internal/service/workflow"
+	"workflow_http/infra/conf"
+	"workflow_http/infra/database"
+	"workflow_http/infra/wechat_bot"
+	"workflow_http/internal/repo"
+	"workflow_http/internal/service/wechat"
+	"workflow_http/internal/service/workflow"
 )
 
 // Injectors from wire.go:
@@ -18,7 +19,8 @@ import (
 func GetContainer(path string) *Container {
 	config := conf.NewConfig(path)
 	db := database.NewMySQL(config)
-	iRepository := repo.NewRepository(db)
+	bot := wechat_bot.NewBot()
+	iRepository := repo.NewRepository(db, bot)
 	iWechat := wechat.NewWeChat(iRepository)
 	iWorkflow := workflow.NewWorkFlow(iRepository)
 	container := NewContainer(iWechat, iWorkflow, config)
