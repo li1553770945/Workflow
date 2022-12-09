@@ -14,6 +14,6 @@
 .idea
 *.DS_Store
 bubble
-conf
+/conf
 *.vsdx
 main
