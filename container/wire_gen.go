@@ -8,6 +8,7 @@ package container
 import (
 	"workflow_http/infra/conf"
 	"workflow_http/infra/database"
+	"workflow_http/infra/log"
 	"workflow_http/infra/wechat_bot"
 	"workflow_http/internal/repo"
 	"workflow_http/internal/service/wechat"
@@ -20,8 +21,9 @@ func GetContainer(path string) *Container {
 	config := conf.NewConfig(path)
 	db := database.NewMySQL(config)
 	bot := wechat_bot.NewBot()
-	iRepository := repo.NewRepository(db, bot)
-	iWechat := wechat.NewWeChat(iRepository)
+	logLog := log.NewLog(config)
+	iRepository := repo.NewRepository(db, bot, logLog)
+	iWechat := wechat.NewWeChat(iRepository, logLog)
 	iWorkflow := workflow.NewWorkFlow(iRepository)
 	container := NewContainer(iWechat, iWorkflow, config)
 	return container

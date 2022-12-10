@@ -6,6 +6,7 @@ import (
 	"github.com/google/wire"
 	"workflow_http/infra/conf"
 	"workflow_http/infra/database"
+	"workflow_http/infra/log"
 	"workflow_http/infra/wechat_bot"
 	"workflow_http/internal/repo"
 	"workflow_http/internal/service/wechat"
@@ -19,6 +20,7 @@ func GetContainer(path string) *Container {
 		conf.NewConfig,
 		database.NewMySQL,
 		wechat_bot.NewBot,
+		log.NewLog,
 		//repo
 		repo.NewRepository,
 

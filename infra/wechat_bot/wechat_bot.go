@@ -15,7 +15,7 @@ func NewBot() *openwechat.Bot {
 	reloadStorage := openwechat.NewJsonFileHotReloadStorage("storage.json")
 
 	// 执行热登录
-	err := bot.HotLogin(reloadStorage)
+	err := bot.HotLogin(reloadStorage, true)
 	if err != nil {
 		panic("微信登陆失败" + err.Error())
 	}

@@ -15,9 +15,15 @@ type MysqlConfig struct {
 	Database string `yaml:"database"`
 	Address  string `yaml:"address"`
 }
+
+type LogConfig struct {
+	Level string `yaml:"level"`
+}
+
 type Config struct {
 	HttpConfig  HttpConfig  `yaml:"http"`
 	MysqlConfig MysqlConfig `yaml:"mysql"`
+	LogConfig   LogConfig   `yaml:"log"`
 }
 
 func NewConfig(path string) *Config {
