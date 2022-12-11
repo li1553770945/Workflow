@@ -14,5 +14,6 @@ func NewMySQL(cfg *conf.Config) *gorm.DB {
 	if err != nil {
 		panic("failed to connect database")
 	}
+
 	return DB
 }

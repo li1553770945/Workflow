@@ -1,3 +1,4 @@
+//go:build wireinject
 // +build wireinject
 
 package container
@@ -5,6 +6,7 @@ package container
 import (
 	"github.com/google/wire"
 	"workflow_http/infra/conf"
+	"workflow_http/infra/dao"
 	"workflow_http/infra/database"
 	"workflow_http/infra/log"
 	"workflow_http/infra/wechat_bot"
@@ -21,6 +23,7 @@ func GetContainer(path string) *Container {
 		database.NewMySQL,
 		wechat_bot.NewBot,
 		log.NewLog,
+		dao.NewDao,
 		//repo
 		repo.NewRepository,
 

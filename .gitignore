@@ -17,3 +17,4 @@ bubble
 /conf
 *.vsdx
 main
+storage.json
